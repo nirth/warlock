@@ -3,44 +3,47 @@
  * https://github.com/facebook/react-native
  */
 
-import React, {
-  AppRegistry,
-  Component,
-  StyleSheet,
-  View,
-  AsyncStorage
-} from 'react-native';
-import {loadAppState} from './loadAppState';
+import React, {Component} from 'react-native';
 import {
   App,
-  Preloader
-} from './src';
+  Preloader,
+  initializeAppState,
+} from './app';
+import {Provider} from 'react-redux';
 
 class Main extends Component {
   constructor() {
     super();
-    this.state = null;
+    this.state = {appStateLoaded: false};
   }
 
   componentDidMount() {
-    console.info('Main.componentDidMount');
-    loadAppState()
-      .then(this.applyState.bind(this))
-      .done();
+    initializeAppState()
+      .then(this.handleAppStateInitialization.bind(this));
   }
 
-  applyState(warlockState) {
-    console.info('Main.applyState');
-    this.setState(warlockState);
+  handleAppStateInitialization(store) {
+    console.info('Main.handleAppStateInitialization', store);
+    this.setState({appStateLoaded: true, store});
+  }
+
+  renderPreloader() {
+    return <Preloader message="Please wait while warlock fetching your rituals" />;
+  }
+
+  renderApp() {
+    const {store} = this.state;
+    return <Provider store={store}><App /></Provider>;
   }
 
   render() {
-    console.info('Main.render')
-    if (this.state === null) {
-      return <Preloader message="Please wait while warlock fetching your rituals" />;
+    const {appStateLoaded} = this.state;
+
+    if (!appStateLoaded) {
+      return this.renderPreloader();
     }
 
-    return <App warlockState={this.state} />;
+    return this.renderApp();
   }
 }
 

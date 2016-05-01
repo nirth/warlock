@@ -17,4 +17,4 @@ Preloader.propTypes = {
   message: PropTypes.string.isRequired
 };
 
-export {Preloader};
+export default Preloader;

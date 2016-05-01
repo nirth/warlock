@@ -5,17 +5,10 @@
  */
 import React, {
   AppRegistry,
-  Component,
-  StyleSheet,
-  Text,
-  View
 } from 'react-native';
 import Main from './Main';
 
-class Warlock extends Component {
-  render() {
-    return <Main />;
-  }
-}
+const WarlockIos = () => <Main />;
 
-AppRegistry.registerComponent('Warlock', () => Warlock);
+
+AppRegistry.registerComponent('Warlock', () => WarlockIos);

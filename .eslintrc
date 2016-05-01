@@ -1,0 +1,26 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "react-native"
+  ],
+  "extends": "airbnb",
+  "rules": {
+    "no-unused-vars": ["warn"],
+    "new-cap": ["error", {"capIsNewExceptions": ["Immutable"]}],
+    "object-curly-spacing": ["error", "never"],
+    "react-native/no-unused-styles": ["error"],
+    "react-native/split-platform-components": ["error"]
+  },
+  "globals": {
+    "expect": true
+  },
+  "settings": {
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "es6": true
+  }
+}

@@ -10,4 +10,4 @@ const NoRitualsMessage = () => (
   </View>
 );
 
-export {NoRitualsMessage};
+export default NoRitualsMessage;

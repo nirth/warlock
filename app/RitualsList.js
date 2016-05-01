@@ -10,4 +10,4 @@ const RitualsList = () => (
   </View>
 );
 
-export {RitualsList};
+export default RitualsList;
