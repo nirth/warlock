@@ -2,7 +2,6 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-
 import React, {Component} from 'react-native';
 import {
   App,
@@ -23,7 +22,6 @@ class Main extends Component {
   }
 
   handleAppStateInitialization(store) {
-    console.info('Main.handleAppStateInitialization', store);
     this.setState({appStateLoaded: true, store});
   }
 

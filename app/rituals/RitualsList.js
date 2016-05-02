@@ -3,22 +3,21 @@ import React, {
   PropTypes,
   ListView,
 } from 'react-native';
-import {styles} from '../styles';
-import Row from './Row';
-import Header from './Header';
-import Footer from './Footer';
+// import {styles} from '../styles';
+import RitualItem from './RitualItem';
+import HeaderRenderer from './HeaderRenderer';
+import FooterRenderer from './FooterRenderer';
+import {listDataSource} from '../utils';
 
-const renderHeader = () => <Header />;
-const renderRow = (data) => <Row {...data} />;
-const renderFooter = () => <Footer />;
+const renderHeader = () => <HeaderRenderer />;
+const renderRow = (data) => <RitualItem {...data} />;
+const renderFooter = () => <FooterRenderer />;
 
 const RitualsList = ({rituals}) => {
-  const dataSource = new ListView.DataSource({rowHasChanged: (a, b) => a !== b})
-    .cloneWithRows(rituals);
+  const dataSource = listDataSource(rituals);
 
   return (
     <ListView
-      contentContainerStyle={styles.box}
       dataSource={dataSource}
       renderRow={renderRow}
       renderHeader={renderHeader}
@@ -32,3 +31,13 @@ RitualsList.propTypes = {
 };
 
 export default RitualsList;
+
+/*
+<ListView
+      contentContainerStyle={styles.box}
+      dataSource={dataSource}
+      renderRow={renderRow}
+      renderHeader={renderHeader}
+      renderFooter={renderFooter}
+    />
+    */

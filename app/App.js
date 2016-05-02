@@ -28,7 +28,7 @@ class App extends Component {
     const {rituals} = this.props;
 
     return (
-      <View style={styles.centeredBox}>
+      <View style={styles.screen}>
         {rituals.length ? <RitualsList rituals={rituals} /> : <NoRitualsMessage />}
         <ActionButton
           buttonColor="rgba(231,76,60,1)"

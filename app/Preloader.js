@@ -7,9 +7,9 @@ import React, {
 import {styles} from './styles';
 
 const Preloader = ({message}) => (
-  <View style={styles.centeredBox}>
-    <Text style={styles.heading}>Loading</Text>
-    <Text style={styles.greyBodyText}>{message}</Text>
+  <View>
+    <Text>Loading</Text>
+    <Text>{message}</Text>
   </View>
 );
 

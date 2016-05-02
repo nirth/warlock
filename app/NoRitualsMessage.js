@@ -1,12 +1,11 @@
 import React, {
-  Component,
   Text,
-  View
+  View,
 } from 'react-native';
 import {styles} from './styles';
 
 const NoRitualsMessage = () => (
-  <View style={styles.centeredBox}>
+  <View>
     <Text>You don‘t have any routines / rituals yet</Text>
   </View>
 );
