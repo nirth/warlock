@@ -1,6 +1,7 @@
 import {AsyncStorage} from 'react-native';
-import {combineReducers, createStore} from 'redux';
+import {combineReducers, createStore, applyMiddleware} from 'redux';
 import {ritualsReducer} from './reducers';
+import {asyncStorageMiddleware} from './asyncStorageMiddleware';
 
 const initialState = {
   // player: {},
@@ -10,6 +11,9 @@ const initialState = {
 const resolveState = (state) => {
   if (state === null || state === undefined) {
     return initialState;
+  } else if (typeof state === 'string') {
+    // TODO: Probably a good idea to validate state.
+    return JSON.parse(state);
   }
 
   return state;
@@ -18,7 +22,9 @@ const resolveState = (state) => {
 const createReduxApp = (state) => {
   const store = createStore(combineReducers({
     rituals: ritualsReducer,
-  }), state);
+  }),
+  state,
+  applyMiddleware(asyncStorageMiddleware));
 
   return store;
 };

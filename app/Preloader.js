@@ -4,17 +4,17 @@ import React, {
   Text,
   View
 } from 'react-native';
-import {ritualStyles} from './ritualStyles';
+import {styles} from './styles';
 
 const Preloader = ({message}) => (
-  <View style={ritualStyles.container}>
-    <Text>Loading</Text>
-    <Text>{message}</Text>
+  <View style={styles.centeredBox}>
+    <Text style={styles.heading}>Loading</Text>
+    <Text style={styles.greyBodyText}>{message}</Text>
   </View>
 );
 
 Preloader.propTypes = {
-  message: PropTypes.string.isRequired
+  message: PropTypes.string.isRequired,
 };
 
 export default Preloader;
