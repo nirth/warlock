@@ -1,8 +1,10 @@
-import {styles} from './styles';
+import {StyleSheet} from 'react-native';
+import {screenStyle} from './styles';
+import {vbox, hbox} from './containers';
 
-const {
+const styles = StyleSheet.create({
   screen: screenStyle,
-} = styles;
+});
 
 export {styles};
 export {
