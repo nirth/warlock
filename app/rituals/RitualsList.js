@@ -31,13 +31,3 @@ RitualsList.propTypes = {
 };
 
 export default RitualsList;
-
-/*
-<ListView
-      contentContainerStyle={styles.box}
-      dataSource={dataSource}
-      renderRow={renderRow}
-      renderHeader={renderHeader}
-      renderFooter={renderFooter}
-    />
-    */
