@@ -5,4 +5,4 @@ test:
   override:
     - npm test
     - mkdir ${CIRCLE_TEST_REPORTS}
-    - cp report.xunit.xml ${CIRCLE_TEST_REPORTS}/xunit.xml
+    - cp .report.xunit.xml ${CIRCLE_TEST_REPORTS}/xunit.xml
