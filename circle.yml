@@ -1,6 +1,7 @@
 machine:
   node:
     version: 6.0.0
-  override:
-    - npm test
-    - cp report.xunit.xml ${CIRCLE_TEST_REPORTS}/deployment/xunit.xml
+  test:
+    override:
+      - npm test
+      - cp report.xunit.xml ${CIRCLE_TEST_REPORTS}/xunit.xml
