@@ -1,7 +1,6 @@
 import {AsyncStorage} from 'react-native';
 import {nextStack} from '../utils';
 
-
 // Middleware will take action and dispatch `saveAppState` action on next call stack.
 // On next run it will save updated app state.
 export const asyncStorageMiddleware = (store) => (next) => (action) => {
