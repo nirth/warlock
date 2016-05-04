@@ -6,7 +6,7 @@
   ],
   "extends": "airbnb",
   "rules": {
-    "no-unused-vars": ["warn"],
+    "no-unused-vars": ["error", {"argsIgnorePattern": "[event]"}],
     "new-cap": ["error", {"capIsNewExceptions": ["Immutable"]}],
     "object-curly-spacing": ["error", "never"],
     "react-native/no-unused-styles": ["error"],
