@@ -1,5 +1,4 @@
 import React, {
-  Component,
   PropTypes,
   ListView,
 } from 'react-native';

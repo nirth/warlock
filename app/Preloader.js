@@ -1,10 +1,8 @@
 import React, {
-  Component,
   PropTypes,
   Text,
-  View
+  View,
 } from 'react-native';
-import {styles} from './styles';
 
 const Preloader = ({message}) => (
   <View>
