@@ -2,7 +2,6 @@ import React, {
   Text,
   View,
 } from 'react-native';
-import {styles} from './styles';
 
 const NoRitualsMessage = () => (
   <View>

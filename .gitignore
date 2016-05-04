@@ -32,6 +32,7 @@ local.properties
 #
 node_modules/
 npm-debug.log
+*.xunit.xml
 
 # BUCK
 buck-out/
@@ -40,5 +41,4 @@ android/app/libs
 android/keystores/debug.keystore
 
 # VSCode
-
 .vscode
