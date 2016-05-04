@@ -19,7 +19,7 @@ class App extends Component {
     rituals: PropTypes.array.isRequired,
   };
 
-  onActionButtonPress(event) {
+  onActionButtonPress() {
     const {dispatch} = this.props;
     dispatch(addEmptyRitual());
   }
@@ -32,7 +32,7 @@ class App extends Component {
         {rituals.length ? <RitualsList rituals={rituals} /> : <NoRitualsMessage />}
         <ActionButton
           buttonColor="rgba(231,76,60,1)"
-          onPress={this.onActionButtonPress.bind(this)}
+          onPress={this.onActionButtonPress}
         />
       </View>
     );

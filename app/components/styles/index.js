@@ -3,7 +3,7 @@ import {
   titleStyle,
   subTitleStyle,
   bodyTextStyle,
-  boringBodyTextStyle,  
+  boringBodyTextStyle,
 } from './typography';
 
 

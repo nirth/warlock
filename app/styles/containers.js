@@ -4,10 +4,10 @@ export const box = {
   alignItems: 'stretch',
 };
 
-export const vbox = {
+export const vbox = Object.assign({
   flexDirection: 'column',
-};
+}, box);
 
-export const hbox = {
+export const hbox = Object.assign({
   flexDirection: 'row',
-};
+}, box);
