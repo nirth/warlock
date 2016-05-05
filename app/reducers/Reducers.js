@@ -3,7 +3,7 @@ import {
   WIPE_DATA,
 } from './Actions';
 
-export const ritualsReducer = (state = [], {type, payload}) => {
+export const rituals = (state = [], {type, payload}) => {
   switch (type) {
     case ADD_RITUAL:
       return state.concat([payload]);
