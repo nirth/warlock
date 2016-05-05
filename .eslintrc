@@ -2,7 +2,8 @@
   "parser": "babel-eslint",
   "plugins": [
     "react",
-    "react-native"
+    "react-native",
+    "prefer-bind-operator"
   ],
   "extends": "airbnb",
   "rules": {
@@ -10,7 +11,8 @@
     "new-cap": ["error", {"capIsNewExceptions": ["Immutable"]}],
     "object-curly-spacing": ["error", "never"],
     "react-native/no-unused-styles": ["error"],
-    "react-native/split-platform-components": ["error"]
+    "react-native/split-platform-components": ["error"],
+    "prefer-bind-operator/prefer-bind-operator": ["error"]
   },
   "globals": {
     "expect": true
