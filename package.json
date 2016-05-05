@@ -3,10 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "ci:bdd:app": "mocha --reporter spec-xunit-file --require dotenv/config --require react-native-mock/mock.js --compilers js:babel-core/register --recursive app/**/*.spec.js",
+    "ci": "npm run ci:bdd:app && npm run lint:app",
     "lint:app": "node_modules/.bin/eslint 'app/**/*.js'",
-    "bdd:app": "mocha --reporter spec-xunit-file --require dotenv/config --require react-native-mock/mock.js --compilers js:babel-core/register --recursive app/**/*.spec.js",
-    "test": "npm run bdd:app && npm run lint:app"
+    "bdd:app": "mocha --reporter nyan --require dotenv/config --require react-native-mock/mock.js --compilers js:babel-core/register --recursive app/**/*.spec.js",
+    "test": "npm run bdd:app && npm run lint:app",
+    "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
     "ramda": "^0.21.0",
@@ -24,6 +26,7 @@
     "babel-jest": "^12.0.2",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-react-native": "^1.6.0",
+    "babel-preset-react-native-stage-0": "^1.0.1",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.4.2",
     "dotenv": "^2.0.0",

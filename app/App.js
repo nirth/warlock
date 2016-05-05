@@ -32,7 +32,7 @@ class App extends Component {
         {rituals.length ? <RitualsList rituals={rituals} /> : <NoRitualsMessage />}
         <ActionButton
           buttonColor="rgba(231,76,60,1)"
-          onPress={this.onActionButtonPress}
+          onPress={this.onActionButtonPress.bind(this)}
         />
       </View>
     );
