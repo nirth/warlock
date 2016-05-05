@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "lint:app": "node_modules/.bin/eslint 'app/**/*.js'",
-    "bdd:app": "mocha --reporter mocha-junit-reporter --require dotenv/config --require react-native-mock/mock.js --compilers js:babel-core/register --recursive app/**/*.spec.js",
+    "bdd:app": "mocha --reporter spec-xunit-file --require dotenv/config --require react-native-mock/mock.js --compilers js:babel-core/register --recursive app/**/*.spec.js",
     "test": "npm run bdd:app && npm run lint:app"
   },
   "dependencies": {

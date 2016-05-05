@@ -1,3 +1,11 @@
 machine:
   node:
     version: 6.0.0
+test:
+  override:
+    - mkdir -p $CIRCLE_TEST_REPORTS/xunit
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit
+    - cp .report.xunit.xml $CIRCLE_TEST_REPORTS/xunit
+    - cp .report.xunit.xml $CIRCLE_TEST_REPORTS/junit
+    
+    
