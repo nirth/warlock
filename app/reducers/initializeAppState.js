@@ -1,12 +1,8 @@
 import {AsyncStorage} from 'react-native';
 import {combineReducers, createStore, applyMiddleware} from 'redux';
-import {ritualsReducer} from './reducers';
+import {ritualsReducer} from './Reducers';
 import {asyncStorageMiddleware} from './asyncStorageMiddleware';
-
-const initialState = {
-  // player: {},
-  rituals: [],
-};
+import {initialState} from './initialState';
 
 const resolveState = (state) => {
   if (state === null || state === undefined) {

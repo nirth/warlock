@@ -1,6 +1,7 @@
 import uuid from 'uuid';
 
 export const ADD_RITUAL = 'addRitual';
+export const WIPE_DATA = 'wipeData';
 
 export const addEmptyRitual = () => ({
   type: ADD_RITUAL,
@@ -10,4 +11,8 @@ export const addEmptyRitual = () => ({
     createdAt: Date.now(),
     updatedAt: Date.now(),
   },
+});
+
+export const wipeData = () => ({
+  type: WIPE_DATA,
 });

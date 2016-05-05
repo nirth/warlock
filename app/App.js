@@ -4,7 +4,7 @@ import React, {
   View,
 } from 'react-native';
 import {connect} from 'react-redux';
-import {addEmptyRitual} from './reducers';
+import {addEmptyRitual, wipeData} from './reducers';
 import {styles} from './styles';
 import NoRitualsMessage from './NoRitualsMessage';
 import {RitualsList} from './rituals';
@@ -19,9 +19,14 @@ class App extends Component {
     rituals: PropTypes.array.isRequired,
   };
 
-  onActionButtonPress() {
+  addRitualPressed() {
     const {dispatch} = this.props;
     dispatch(addEmptyRitual());
+  }
+  
+  wipeDataPressed() {
+    const {dispatch} = this.props;
+    dispatch(wipeData());
   }
 
   render() {
@@ -32,7 +37,12 @@ class App extends Component {
         {rituals.length ? <RitualsList rituals={rituals} /> : <NoRitualsMessage />}
         <ActionButton
           buttonColor="rgba(231,76,60,1)"
-          onPress={this.onActionButtonPress.bind(this)}
+          onPress={::this.addRitualPressed}
+        />
+        <ActionButton
+          buttonColor="rgba(60,76,231,1)"
+          onPress={::this.wipeDataPressed}
+          position="center"
         />
       </View>
     );

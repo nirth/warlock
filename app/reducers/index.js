@@ -1,2 +1,2 @@
 export {initializeAppState} from './initializeAppState';
-export {addEmptyRitual} from './Actions';
+export {addEmptyRitual, wipeData} from './Actions';
