@@ -4,6 +4,7 @@
 import React, {
   PropTypes,
   Text,
+  TouchableHighlight,
   View,
 } from 'react-native';
 import {
@@ -15,23 +16,25 @@ import {
   ritualItemRowStyle,
 } from './styles';
 
-const formatDate = (epoch: Number) => (new Date(epoch)).toDateString();
+const formatDate = (epoch) => (new Date(epoch)).toDateString();
 
-const RitualItem = ({name, uuid, createdAt, updatedAt}) => (
-  <View style={ritualItemStyle}>
-    <View style={ritualItemRowStyle}>
-      <Title>{name}</Title>
+const RitualItem = ({name, uuid, createdAt, updatedAt, onPress}) => (
+  <TouchableHighlight style={ritualItemStyle} onPress={() => onPress({uuid})}>
+    <View>
+      <View style={ritualItemRowStyle}>
+        <Title>{name}</Title>
+      </View>
+      <View style={ritualItemRowStyle}>
+        <Text>{formatDate(createdAt)}</Text>
+        <Spacer />
+        <Text>{formatDate(updatedAt)}</Text>
+      </View>
+      <View style={ritualItemRowStyle}>
+        <Spacer />
+        <Text>{uuid}</Text>
+      </View>
     </View>
-    <View style={ritualItemRowStyle}>
-      <Text>{formatDate(createdAt)}</Text>
-      <Spacer />
-      <Text>{formatDate(updatedAt)}</Text>
-    </View>
-    <View style={ritualItemRowStyle}>
-      <Spacer />
-      <Text>{uuid}</Text>
-    </View>
-  </View>
+  </TouchableHighlight>
 );
 
 RitualItem.propTypes = {
@@ -39,6 +42,7 @@ RitualItem.propTypes = {
   uuid: PropTypes.string.isRequired,
   createdAt: PropTypes.number.isRequired,
   updatedAt: PropTypes.number.isRequired,
+  onPress: PropTypes.func.isRequired,
 };
 
 export default RitualItem;

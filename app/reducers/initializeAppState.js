@@ -1,6 +1,6 @@
 import {AsyncStorage} from 'react-native';
 import {combineReducers, createStore, applyMiddleware} from 'redux';
-import {rituals} from './Reducers';
+import {rituals, auxiliary} from './Reducers';
 import {asyncStorageMiddleware} from './asyncStorageMiddleware';
 import {initialState} from './initialState';
 
@@ -17,6 +17,7 @@ const resolveState = (state) => {
 
 const createReduxApp = (state) => {
   const store = createStore(combineReducers({
+    auxiliary,
     rituals,
   }),
   state,

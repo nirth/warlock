@@ -5,6 +5,11 @@ import {
   bodyTextStyle,
   boringBodyTextStyle,
 } from './typography';
+import {
+  boxStyle,
+  vboxStyle,
+  hboxStyle,
+} from './boxes';
 
 
 // // Figure out how to use motherfucking fonts.
@@ -13,7 +18,10 @@ import {
 
 export const styles = StyleSheet.create({
   title: titleStyle,
-  subTitle: subTitleStyle,
+  subtitle: subTitleStyle,
   bodyText: bodyTextStyle,
   boringBodyText: boringBodyTextStyle,
+  box: boxStyle,
+  vbox: vboxStyle,
+  hbox: hboxStyle,
 });
