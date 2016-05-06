@@ -1,32 +1,37 @@
 import React, {
+  Component,
   PropTypes,
   ListView,
 } from 'react-native';
 // import {styles} from '../styles';
 import RitualItem from './RitualItem';
-import HeaderRenderer from './HeaderRenderer';
-import FooterRenderer from './FooterRenderer';
+// import HeaderRenderer from './HeaderRenderer';
+// import FooterRenderer from './FooterRenderer';
 import {listDataSource} from '../utils';
 
-const renderHeader = () => <HeaderRenderer />;
-const renderRow = (data) => <RitualItem {...data} />;
-const renderFooter = () => <FooterRenderer />;
+const renderRow = (onPress) => (data) => <RitualItem {...data} onPress={onPress} />;
 
-const RitualsList = ({rituals}) => {
-  const dataSource = listDataSource(rituals);
+class RitualsList extends Component {
+  static propTypes = {
+    rituals: PropTypes.array.isRequired,
+  };
 
-  return (
-    <ListView
-      dataSource={dataSource}
-      renderRow={renderRow}
-      renderHeader={renderHeader}
-      renderFooter={renderFooter}
-    />
-  );
-};
+  onRitualPress({uuid}) {
+    console.log('onRitualPress', uuid);
+    console.warn('onRitualPress', uuid);
+  }
 
-RitualsList.propTypes = {
-  rituals: PropTypes.array.isRequired,
-};
+  render() {
+    const {rituals} = this.props;
+    const dataSource = listDataSource(rituals);
+
+    return (
+      <ListView
+        dataSource={dataSource}
+        renderRow={renderRow(::this.onRitualPress)}
+      />
+    );
+  }
+}
 
 export default RitualsList;

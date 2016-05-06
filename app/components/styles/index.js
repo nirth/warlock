@@ -18,7 +18,7 @@ import {
 
 export const styles = StyleSheet.create({
   title: titleStyle,
-  subTitle: subTitleStyle,
+  subtitle: subTitleStyle,
   bodyText: bodyTextStyle,
   boringBodyText: boringBodyTextStyle,
   box: boxStyle,
