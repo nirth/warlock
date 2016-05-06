@@ -4,14 +4,14 @@ import React, {
   View,
 } from 'react-native';
 import {connect} from 'react-redux';
-import {addEmptyRitual, wipeData} from './reducers';
+import {addEmptyRitual, wipeData, ritualsAsListSelector} from './reducers';
 import {styles} from './styles';
 import NoRitualsMessage from './NoRitualsMessage';
 import {RitualsList} from './rituals';
 import ActionButton from 'react-native-action-button';
 
 @connect((state) => ({
-  rituals: state.rituals,
+  rituals: ritualsAsListSelector(state),
 }))
 class App extends Component {
   static propTypes = {
@@ -23,7 +23,7 @@ class App extends Component {
     const {dispatch} = this.props;
     dispatch(addEmptyRitual());
   }
-  
+
   wipeDataPressed() {
     const {dispatch} = this.props;
     dispatch(wipeData());
