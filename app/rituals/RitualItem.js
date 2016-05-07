@@ -18,8 +18,10 @@ import {
 
 const formatDate = (epoch) => (new Date(epoch)).toDateString();
 
+const _onPress = (uuid, handler) => () => handler({uuid});
+
 const RitualItem = ({name, uuid, createdAt, updatedAt, onPress}) => (
-  <TouchableHighlight style={ritualItemStyle} onPress={() => onPress({uuid})}>
+  <TouchableHighlight style={ritualItemStyle} onPress={_onPress(uuid, onPress)}>
     <View>
       <View style={ritualItemRowStyle}>
         <Title>{name}</Title>
