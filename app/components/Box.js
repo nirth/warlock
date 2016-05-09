@@ -8,10 +8,11 @@ const VERTICAL = 'vertical';
 const HORIZONTAL = 'horizontal';
 
 const computeStyles = (direction) => {
-  const initialStyle = styles.box;
+  const initialStyle = [styles.box];
   const withDirection = initialStyle.concat([direction === HORIZONTAL ? styles.hbox : styles.vbox]);
-
-  return withDirection;
+  
+  const result = withDirection;
+  return result;
 };
 
 const Box = ({direction, children}) => <View style={computeStyles(direction)}>{children}</View>;
