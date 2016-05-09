@@ -14,6 +14,12 @@ class RitualPreferences extends Component {
       uuid: PropTypes.string.isRequired,
     }).isRequired,
   };
+  
+  constructor(props) {
+    super(props);
+    
+    this.state = {};
+  }
 
   render() {
     const {ritual: {name: ritualName}} = this.props;

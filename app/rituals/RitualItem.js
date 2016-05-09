@@ -1,41 +1,25 @@
 /**
  * @flow
  */
-import React, {
-  PropTypes,
-  Text,
-  TouchableHighlight,
-  View,
-} from 'react-native';
-import {
-  Spacer,
-  Title,
-} from '../components';
-import {
-  ritualItemStyle,
-  ritualItemRowStyle,
-} from './styles';
-
-const formatDate = (epoch) => (new Date(epoch)).toDateString();
-
-const _onPress = (uuid, handler) => () => handler({uuid});
+import React, {PropTypes, TouchableHighlight} from 'react-native';
+import {Spacer, Title, BodyText, HBox, VBox} from '../components';
+import {formatDate} from  '../utils';
+import {ritualItemStyle, ritualItemRowStyle} from './styles';
 
 const RitualItem = ({name, uuid, createdAt, updatedAt, onPress}) => (
-  <TouchableHighlight style={ritualItemStyle} onPress={_onPress(uuid, onPress)}>
-    <View>
-      <View style={ritualItemRowStyle}>
-        <Title>{name}</Title>
-      </View>
-      <View style={ritualItemRowStyle}>
-        <Text>{formatDate(createdAt)}</Text>
+  <TouchableHighlight style={ritualItemStyle} onPress={() => onPress({uuid})}>
+    <VBox>
+      <Title>{name}</Title>
+      <HBox>
+        <BodyText>{formatDate(createdAt)}</BodyText>
         <Spacer />
-        <Text>{formatDate(updatedAt)}</Text>
-      </View>
-      <View style={ritualItemRowStyle}>
+        <BodyText>{formatDate(updatedAt)}</BodyText>
+      </HBox>
+      <HBox>
         <Spacer />
-        <Text>{uuid}</Text>
-      </View>
-    </View>
+        <BodyText>{uuid}</BodyText>
+      </HBox>
+    </VBox>
   </TouchableHighlight>
 );
 

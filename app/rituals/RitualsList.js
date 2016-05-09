@@ -17,8 +17,8 @@ class RitualsList extends Component {
   };
 
   onRitualPress({uuid}) {
-    console.log('onRitualPress', uuid);
-    console.warn('onRitualPress', uuid);
+    // console.log('onRitualPress', uuid);
+    // console.warn('onRitualPress', uuid);
   }
 
   render() {
