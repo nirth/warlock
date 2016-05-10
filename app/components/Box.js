@@ -10,7 +10,7 @@ const HORIZONTAL = 'horizontal';
 const computeStyles = (direction) => {
   const initialStyle = [styles.box];
   const withDirection = initialStyle.concat([direction === HORIZONTAL ? styles.hbox : styles.vbox]);
-  
+
   const result = withDirection;
   return result;
 };

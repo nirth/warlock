@@ -1,10 +1,9 @@
 import Immutable from 'seamless-immutable';
 
 export const combineImmutableReducers = (reducers) => {
-  console.warn('combineImmutableReducers', reducers);
   const keys = Object.keys(reducers);
 
-  return (state, action) => Immutable(keys.reduce((currentState, reducerName) => {  
+  return (state, action) => Immutable(keys.reduce((currentState, reducerName) => {
     const reducer = reducers[reducerName];
     const childState = currentState[reducerName];
     const nextState = currentState;

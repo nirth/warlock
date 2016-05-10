@@ -1,4 +1,4 @@
-import React, {View} from 'react-native';
+import React from 'react-native';
 import {shallow} from 'enzyme';
 import HBox from './HBox';
 import chai, {expect} from 'chai';
@@ -12,4 +12,9 @@ chai.use(sinonChai);
 
 describe('HBox component should', () => {
   it('exist', () => expect(HBox).to.be.a('function'));
+
+  it('be a component', () => {
+    const wrapper = shallow(<HBox />);
+    expect(wrapper).to.not.be.undefined();
+  });
 });
