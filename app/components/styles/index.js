@@ -11,17 +11,12 @@ import {
   hboxStyle,
 } from './boxes';
 
-
-// // Figure out how to use motherfucking fonts.
-// const FONT = 'AktivGrotesk';
-// const REGULAR = `${FONT}_Rg`;
-
 export const styles = StyleSheet.create({
   title: titleStyle,
   subtitle: subTitleStyle,
   bodyText: bodyTextStyle,
   boringBodyText: boringBodyTextStyle,
   box: boxStyle,
-  vbox: vboxStyle,
-  hbox: hboxStyle,
+  vbox: Object.assign({}, boxStyle, vboxStyle),
+  hbox: Object.assign({}, boxStyle, hboxStyle),
 });

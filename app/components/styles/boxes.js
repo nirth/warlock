@@ -1,4 +1,4 @@
-export const box = {
+export const boxStyle = {
   flex: 1,
   justifyContent: 'flex-start',
   alignItems: 'stretch',

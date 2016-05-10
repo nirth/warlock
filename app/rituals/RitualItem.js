@@ -1,26 +1,25 @@
 /**
  * @flow
  */
-import React, {PropTypes, TouchableHighlight} from 'react-native';
+import React, {PropTypes} from 'react-native';
 import {Spacer, Title, BodyText, HBox, VBox} from '../components';
-import {formatDate} from  '../utils';
-import {ritualItemStyle, ritualItemRowStyle} from './styles';
+import {formatDate} from '../utils';
+// import {ritualItemStyle, ritualItemRowStyle} from './styles';
 
 const RitualItem = ({name, uuid, createdAt, updatedAt, onPress}) => (
-  <TouchableHighlight style={ritualItemStyle} onPress={() => onPress({uuid})}>
-    <VBox>
-      <Title>{name}</Title>
-      <HBox>
-        <BodyText>{formatDate(createdAt)}</BodyText>
-        <Spacer />
-        <BodyText>{formatDate(updatedAt)}</BodyText>
-      </HBox>
-      <HBox>
-        <Spacer />
-        <BodyText>{uuid}</BodyText>
-      </HBox>
-    </VBox>
-  </TouchableHighlight>
+  // FIXME: Figure out what's wrong with TouchableHighlight and how should it be used.
+  <VBox>
+    <Title>{name}</Title>
+    <HBox>
+      <BodyText>{formatDate(createdAt)}</BodyText>
+      <Spacer />
+      <BodyText>{formatDate(updatedAt)}</BodyText>
+    </HBox>
+    <HBox>
+      <Spacer />
+      <BodyText>{uuid}</BodyText>
+    </HBox>
+  </VBox>
 );
 
 RitualItem.propTypes = {
@@ -32,3 +31,20 @@ RitualItem.propTypes = {
 };
 
 export default RitualItem;
+
+/*
+
+<VBox>
+      <Title>{name}</Title>
+      <HBox>
+        <BodyText>{formatDate(createdAt)}</BodyText>
+        <Spacer />
+        <BodyText>{formatDate(updatedAt)}</BodyText>
+      </HBox>
+      <HBox>
+        <Spacer />
+        <BodyText>{uuid}</BodyText>
+      </HBox>
+    </VBox>
+
+*/

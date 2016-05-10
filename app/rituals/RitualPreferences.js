@@ -14,10 +14,10 @@ class RitualPreferences extends Component {
       uuid: PropTypes.string.isRequired,
     }).isRequired,
   };
-  
+
   constructor(props) {
     super(props);
-    
+
     this.state = {};
   }
 
@@ -31,3 +31,5 @@ class RitualPreferences extends Component {
     );
   }
 }
+
+export default RitualPreferences;
