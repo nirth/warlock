@@ -23,6 +23,9 @@ export const addEmptyRitual = () => ({
   },
 });
 
-export const wipeData = () => ({
+// This action might actually be useful outside of debugging
+// in case of user want's to start over.
+export const wipeData = (force = false) => ({
   type: WIPE_DATA,
+  force
 });
