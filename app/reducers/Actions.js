@@ -27,5 +27,5 @@ export const addEmptyRitual = () => ({
 // in case of user want's to start over.
 export const wipeData = (force = false) => ({
   type: WIPE_DATA,
-  force
+  force,
 });
