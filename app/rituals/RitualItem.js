@@ -3,17 +3,15 @@
  */
 import React, {PropTypes} from 'react-native';
 import {Spacer, Title, BodyText, HBox, VBox} from '../components';
-import {formatDate} from '../utils';
-// import {ritualItemStyle, ritualItemRowStyle} from './styles';
 
 const RitualItem = ({name, uuid, createdAt, updatedAt, onPress}) => (
   // FIXME: Figure out what's wrong with TouchableHighlight and how should it be used.
   <VBox>
     <Title>{name}</Title>
     <HBox>
-      <BodyText>{formatDate(createdAt)}</BodyText>
+      <BodyText date>{createdAt}</BodyText>
       <Spacer />
-      <BodyText>{formatDate(updatedAt)}</BodyText>
+      <BodyText date>{updatedAt}</BodyText>
     </HBox>
     <HBox>
       <Spacer />

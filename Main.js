@@ -9,6 +9,11 @@ import {
   initializeAppState,
 } from './app';
 import {Provider} from 'react-redux';
+import {IntlProvider, addLocaleData} from 'react-intl';
+import en from 'react-intl/locale-data/en';
+
+
+addLocaleData(en);
 
 class Main extends Component {
   constructor() {
@@ -36,12 +41,15 @@ class Main extends Component {
 
   render() {
     const {appStateLoaded} = this.state;
+    let result;
 
     if (!appStateLoaded) {
-      return this.renderPreloader();
+      result = this.renderPreloader();
+    } else {    
+      result = this.renderApp();
     }
-
-    return this.renderApp();
+    
+    return <IntlProvider locale="en" messages={{}}>{result}</IntlProvider>
   }
 }
 
