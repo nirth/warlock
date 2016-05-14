@@ -2,20 +2,18 @@ import React, {
   PropTypes,
   View,
 } from 'react-native';
-import {styles} from './styles';
+import Styles from './Styles';
 
 const VERTICAL = 'vertical';
 const HORIZONTAL = 'horizontal';
 
-const computeStyles = (direction) => {
-  const initialStyle = [styles.box];
-  const withDirection = initialStyle.concat([direction === HORIZONTAL ? styles.hbox : styles.vbox]);
-
-  const result = withDirection;
-  return result;
+const Box = ({direction, children}) => {
+  const props = {
+    style: [Styles.box, direction === HORIZONTAL ? Styles.hbox : Styles.vbox],
+  };
+  
+  return <View {...props}>{children}</View>;
 };
-
-const Box = ({direction, children}) => <View style={computeStyles(direction)}>{children}</View>;
 
 Box.propTypes = {
   direction: PropTypes.oneOf([VERTICAL, HORIZONTAL]).isRequired,
