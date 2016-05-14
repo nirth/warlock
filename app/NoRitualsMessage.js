@@ -1,11 +1,13 @@
 import React, {
-  Text,
   View,
 } from 'react-native';
+import {
+  Message,
+} from './components';
 
 const NoRitualsMessage = () => (
   <View>
-    <Text>You don‘t have any routines / rituals yet</Text>
+    <Message>app.noRituals</Message>
   </View>
 );
 
