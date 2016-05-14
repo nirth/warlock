@@ -1,11 +1,12 @@
 import React, {
   Component,
   PropTypes,
-  // HBox,
+} from 'react-native';
+import {
   VBox,
   Title,
   Subtitle,
-} from 'react-native';
+} from '../components';
 
 class RitualPreferences extends Component {
   static propTypes = {

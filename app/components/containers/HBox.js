@@ -3,14 +3,13 @@ import React, {
 } from 'react-native';
 import Box from './Box';
 
-const VBox = ({children}) => <Box direction="vertical">{children}</Box>;
+const HBox = ({children}) => <Box direction="horizontal">{children}</Box>;
 
-
-VBox.propTypes = {
+HBox.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element,
-  ]),
+  ]).isRequired,
 };
 
-export default VBox;
+export default HBox;
