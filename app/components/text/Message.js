@@ -1,12 +1,12 @@
 import React, {PropTypes} from 'react-native';
 import {TextField, Typography, textField} from './base';
 
-const Title = ({children, ...options}) => {
-  const props = {style: Typography.title, ...options};
+const Message = ({children, ...options}) => {
+  const props = {style: Typography.message, ...options};
   return <TextField {...props}>{children}</TextField>;
 };
 
-Title.propTypes = {
+Message.propTypes = {
   date: PropTypes.bool.isRequired,
   time: PropTypes.bool.isRequired,
   children: PropTypes.oneOfType([
@@ -16,8 +16,8 @@ Title.propTypes = {
   dontTranslate: PropTypes.bool.isRequired,
 };
 
-Title.defaultProps = {
+Message.defaultProps = {
   dontTranslate: false,
 };
 
-export default textField(Title);
+export default textField(Message);
