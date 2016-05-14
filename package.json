@@ -6,7 +6,7 @@
     "ci:bdd:app": "mocha --reporter spec-xunit-file --require dotenv/config --require react-native-mock/mock.js --compilers js:babel-core/register --recursive app/**/*.spec.js",
     "ci": "npm run ci:bdd:app && npm run lint:app",
     "lint:app": "node_modules/.bin/eslint 'app/**/*.js'",
-    "bdd:app": "mocha --reporter nyan --require dotenv/config --require react-native-mock/mock.js --compilers js:babel-core/register --recursive app/**/*.spec.js",
+    "bdd:app": "mocha ./app/components/text/Utils.spec.js --reporter nyan --require dotenv/config --require react-native-mock/mock.js --compilers js:babel-core/register --recursive",
     "test": "npm run bdd:app && npm run lint:app",
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
