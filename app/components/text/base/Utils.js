@@ -1,5 +1,6 @@
 /* @flow */
 import React, {PropTypes} from 'react-native';
+import TextField from './TextField';
 
 export const createTextFieldComponent = (style) => {
   const result = ({children, ...options}) => {
@@ -17,11 +18,11 @@ export const createTextFieldComponent = (style) => {
     dontTranslate: PropTypes.bool.isRequired,
   };
   
-  result.defaultProps: Object.assign({
+  result.defaultProps = {
     date: false,
     time: false,
     dontTranslate: false,
-  }
+  };
   
   return result;
 };
