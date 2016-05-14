@@ -1,7 +1,6 @@
 export default {
-  meta: {
-    initializing: 'Warlock is preparing your workbench',
-    loading: 'Warlock is fetching your rituals',
-    noRituals: 'You don‘t have any rituals mortal! Create at least one!',
-  },
+  'loading.title': 'Warlock',
+  'loading.message': 'is looking for your rituals',
+  
+  'app.noRituals': 'You don‘t have any rituals, create some!',
 };
