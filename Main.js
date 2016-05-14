@@ -8,12 +8,12 @@ import {
   Preloader,
   initializeAppState,
 } from './app';
+import {
+  en,
+  ru,
+} from './intl';
 import {Provider} from 'react-redux';
 import {IntlProvider, addLocaleData} from 'react-intl';
-import en from 'react-intl/locale-data/en';
-
-
-addLocaleData(en);
 
 class Main extends Component {
   constructor() {
@@ -49,7 +49,7 @@ class Main extends Component {
       result = this.renderApp();
     }
     
-    return <IntlProvider locale="en" messages={{}}>{result}</IntlProvider>
+    return <IntlProvider locale="en" messages={en}>{result}</IntlProvider>
   }
 }
 
