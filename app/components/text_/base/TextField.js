@@ -5,7 +5,6 @@ const resolveText = (children, intl, {date, time, dontTranslate}) => {
   if (dontTranslate) {
     return children;
   } else if (date) {
-    console.info('resolveText:date', new Date(children));
     return intl.formatDate(new Date(children));
   } else if (time) {
     return intl.formatTime(new Date(children));
