@@ -2,20 +2,26 @@
  * @flow
  */
 import React, {PropTypes} from 'react-native';
-import {Spacer, Title, BodyText, HBox, VBox} from '../components';
+import {
+  Spacer,
+  Title,
+  BoringText,
+  HBox,
+  VBox,
+} from '../components';
 
 const RitualItem = ({name, uuid, createdAt, updatedAt, onPress}) => (
   // FIXME: Figure out what's wrong with TouchableHighlight and how should it be used.
   <VBox>
-    <Title>{name}</Title>
+    <Title dontTranslate>{name}</Title>
     <HBox>
-      <BodyText date>{createdAt}</BodyText>
+      <BoringText date>{createdAt}</BoringText>
       <Spacer />
-      <BodyText date>{updatedAt}</BodyText>
+      <BoringText date>{updatedAt}</BoringText>
     </HBox>
     <HBox>
       <Spacer />
-      <BodyText>{uuid}</BodyText>
+      <BoringText dontTranslate>{uuid}</BoringText>
     </HBox>
   </VBox>
 );
