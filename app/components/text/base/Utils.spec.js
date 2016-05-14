@@ -67,15 +67,4 @@ that render text for styling and i18n, and should`, () => {
     expect(defaultProps.date).to.equal(false);
     expect(defaultProps.time).to.equal(false);
   });
-  
-  it('throw an error if one of the properties to be injected already exists', () => {
-    expect(() => {
-      @textField
-      class Piccino {
-        static propTypes = {
-          date: 'bool',
-        };
-      }  
-    }).to.throw();
-  });
 });
