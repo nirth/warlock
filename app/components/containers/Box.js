@@ -7,9 +7,13 @@ import Styles from './Styles';
 const VERTICAL = 'vertical';
 const HORIZONTAL = 'horizontal';
 
-const Box = ({direction, children}) => {
+const Box = ({direction, children}, {theme}) => {
   const props = {
-    style: [Styles.box, direction === HORIZONTAL ? Styles.hbox : Styles.vbox],
+    style: [
+      Styles.box,
+      direction === HORIZONTAL ? Styles.hbox : Styles.vbox,
+      theme === 'light' ? Styles.lightTheme : Styles.darkTheme,
+    ],
   };
   
   return <View {...props}>{children}</View>;
@@ -21,6 +25,10 @@ Box.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element,
   ]).isRequired,
+};
+
+Box.contextTypes = {
+  theme: PropTypes.string.isRequired,
 };
 
 Box.defaultProps = {
