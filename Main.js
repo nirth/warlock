@@ -6,6 +6,7 @@ import React, {Component} from 'react-native';
 import {
   App,
   Preloader,
+  Magic,
   initializeAppState,
 } from './app';
 import {
@@ -49,7 +50,13 @@ class Main extends Component {
       result = this.renderApp();
     }
     
-    return <IntlProvider locale="en" messages={en}>{result}</IntlProvider>
+    return (
+      <Magic theme="dark">
+        <IntlProvider locale="en" messages={en}>
+          {result}
+        </IntlProvider>
+      </Magic>
+    );
   }
 }
 
