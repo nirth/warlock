@@ -1,5 +1,9 @@
 import {Component, Children, PropTypes} from 'react-native';
 
+/**
+ * Tower application context provider. It‘s a funky name for boring functionality.
+ * Anything that should be provided in a context and accross application goes here.
+ */
 class Tower extends Component {
   static LIGHT = 'light';
   static DARK = 'dark';
