@@ -20,7 +20,7 @@ const TextField = ({children, style, intl, ...options}, {theme}) => {
     style: [
       style,
       theme === 'light' ? Typography.lightTheme : Typography.darkTheme,
-    ]
+    ],
   };
   return <Text {...props}>{value}</Text>;
 };

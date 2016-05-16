@@ -1,11 +1,12 @@
-import React, {Component, Children, PropTypes} from 'react-native';
+import {Component, Children, PropTypes} from 'react-native';
 
 class Magic extends Component {
   static LIGHT = 'light';
   static DARK = 'dark';
   
   static propTypes = {
-    theme: PropTypes.oneOf(['light', 'dark']),
+    theme: PropTypes.oneOf(['light', 'dark']).isRequired,
+    children: PropTypes.element.isRequired,
   };
   
   static childContextTypes = {
@@ -16,16 +17,16 @@ class Magic extends Component {
     theme: 'light',
   };
   
-  getChildContext() {
-    const {theme} = this.props;
-    
-    return {theme};
-  }
-  
   constructor(props, context) {
     super(props, context);
     const {theme} = props;
     this.theme = theme;
+  }
+  
+  getChildContext() {
+    const {theme} = this.props;
+    
+    return {theme};
   }
   
   render() {
