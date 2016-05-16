@@ -6,7 +6,7 @@ import React, {Component} from 'react-native';
 import {
   App,
   Preloader,
-  Magic,
+  Tower,
   initializeAppState,
 } from './app';
 import {
@@ -51,11 +51,11 @@ class Main extends Component {
     }
     
     return (
-      <Magic theme="dark">
+      <Tower theme="dark">
         <IntlProvider locale="en" messages={en}>
           {result}
         </IntlProvider>
-      </Magic>
+      </Tower>
     );
   }
 }

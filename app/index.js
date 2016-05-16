@@ -1,9 +1,9 @@
 import Preloader from './Preloader';
 import App from './App';
-import Magic from './Magic';
+import Tower from './Tower';
 
 export {Preloader};
 export {App};
-export {Magic};
+export {Tower};
 
 export {initializeAppState} from './reducers';
