@@ -1,6 +1,6 @@
 import {Component, Children, PropTypes} from 'react-native';
 
-class Magic extends Component {
+class Tower extends Component {
   static LIGHT = 'light';
   static DARK = 'dark';
   
@@ -35,4 +35,4 @@ class Magic extends Component {
   }
 }
 
-export default Magic;
+export default Tower;
