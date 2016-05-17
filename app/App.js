@@ -1,14 +1,10 @@
-import React, {
-  Component,
-  PropTypes,
-  View,
-} from 'react-native';
+import React, {Component, PropTypes} from 'react-native';
 import {connect} from 'react-redux';
+import ActionButton from 'react-native-action-button';
 import {addEmptyRitual, wipeData, ritualsAsListSelector} from './reducers';
-import {styles} from './styles';
+import {Screen} from './components';
 import NoRitualsMessage from './NoRitualsMessage';
 import {RitualsList} from './rituals';
-import ActionButton from 'react-native-action-button';
 
 @connect((state) => ({
   rituals: ritualsAsListSelector(state),
@@ -31,9 +27,9 @@ class App extends Component {
 
   render() {
     const {rituals} = this.props;
-
+    
     return (
-      <View style={styles.screen}>
+      <Screen>
         {rituals.length ? <RitualsList rituals={rituals} /> : <NoRitualsMessage />}
         <ActionButton
           buttonColor="rgba(231,76,60,1)"
@@ -44,7 +40,7 @@ class App extends Component {
           onPress={::this.wipeDataPressed}
           position="center"
         />
-      </View>
+      </Screen>
     );
   }
 }
