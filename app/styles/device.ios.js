@@ -1,6 +1,6 @@
 export const screenStyle = {
   flex: 1,
-  marginTop: 20,
+  paddingTop: 20,
   flexDirection: 'column',
   justifyContent: 'flex-start',
   alignItems: 'stretch',
