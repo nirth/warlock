@@ -2,7 +2,6 @@ import React, {
   PropTypes,
   View,
 } from 'react-native';
-import Styles from './Styles';
 
 const VERTICAL = 'vertical';
 const HORIZONTAL = 'horizontal';
@@ -10,13 +9,13 @@ const HORIZONTAL = 'horizontal';
 const Box = ({direction, children}, {theme}) => {
   const props = {
     style: [
-      Styles.box,
-      direction === HORIZONTAL ? Styles.hbox : Styles.vbox,
-      theme === 'light' ? Styles.lightTheme : Styles.darkTheme,
+      direction === HORIZONTAL ? theme.hbox : theme.vbox,
     ],
   };
   
-  return <View {...props}>{children}</View>;
+  return (
+    <View {...props}>{children}</View>
+  );
 };
 
 Box.propTypes = {
@@ -28,7 +27,7 @@ Box.propTypes = {
 };
 
 Box.contextTypes = {
-  theme: PropTypes.string.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 Box.defaultProps = {

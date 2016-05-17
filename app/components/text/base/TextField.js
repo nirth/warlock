@@ -1,6 +1,5 @@
 import React, {PropTypes, Text} from 'react-native';
 import {injectIntl, intlShape} from 'react-intl';
-import Typography from './Typography';
 
 const resolveText = (children, intl, {date, time, dontTranslate}) => {
   if (dontTranslate) {
@@ -19,10 +18,13 @@ const TextField = ({children, style, intl, ...options}, {theme}) => {
   const props = {
     style: [
       style,
-      theme === 'light' ? Typography.lightTheme : Typography.darkTheme,
+      theme.text,
     ],
   };
-  return <Text {...props}>{value}</Text>;
+  
+  return (
+    <Text {...props}>{value}</Text>
+  );
 };
 
 TextField.propTypes = {
@@ -30,7 +32,9 @@ TextField.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]).isRequired,
-  style: PropTypes.number,
+  style: PropTypes.oneOfType([
+    PropTypes.number,
+  ]),
   date: PropTypes.bool.isRequired,
   time: PropTypes.bool.isRequired,
   dontTranslate: PropTypes.bool.isRequired,
@@ -38,7 +42,7 @@ TextField.propTypes = {
 };
 
 TextField.contextTypes = {
-  theme: PropTypes.string.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 TextField.defaultProps = {
