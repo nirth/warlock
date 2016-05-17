@@ -1,4 +1,5 @@
 import {Component, Children, PropTypes} from 'react-native';
+import {darkTheme, lightTheme} from './styles';
 
 /**
  * Tower application context provider. It‘s a funky name for boring functionality.
@@ -14,7 +15,7 @@ class Tower extends Component {
   };
   
   static childContextTypes = {
-    theme: PropTypes.string,
+    theme: PropTypes.object,
   };
   
   static defaultProps = {
@@ -23,14 +24,24 @@ class Tower extends Component {
   
   constructor(props, context) {
     super(props, context);
-    const {theme} = props;
-    this.theme = theme;
+    
+    this.themeName = props.theme;
   }
   
   getChildContext() {
     const {theme} = this.props;
     
-    return {theme};
+    switch (theme) {
+      case 'light': {
+        return {theme: lightTheme};
+      }
+      case 'dark': {
+        return {theme: darkTheme};
+      }
+      default: {
+        throw new Error(`Tower Unexpected theme name ${theme}`);
+      }
+    }
   }
   
   render() {
