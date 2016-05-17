@@ -1,3 +1,3 @@
 export {nextStack} from './nextStack';
 export {listDataSource} from './listDataSource';
-export {formatDate} from './formatDate';
+export {themed} from './themed';
