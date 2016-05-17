@@ -1,14 +1,13 @@
-import React, {
-  View,
-} from 'react-native';
+import React from 'react-native';
 import {
   Message,
+  VBox,
 } from './components';
 
 const NoRitualsMessage = () => (
-  <View>
+  <VBox>
     <Message>app.noRituals</Message>
-  </View>
+  </VBox>
 );
 
 export default NoRitualsMessage;

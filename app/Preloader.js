@@ -1,14 +1,13 @@
 import React, {
   PropTypes,
-  View,
 } from 'react-native';
-import {Title, Message} from './components';
+import {Title, Message, Screen} from './components';
 
 const Preloader = ({message}) => (
-  <View>
+  <Screen>
     <Title>loading.title</Title>
     <Message>loading.message</Message>
-  </View>
+  </Screen>
 );
 
 Preloader.propTypes = {
