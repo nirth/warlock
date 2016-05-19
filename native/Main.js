@@ -7,14 +7,12 @@ import {
   App,
   Preloader,
   Tower,
-  initializeAppState,
 } from './app';
 import {
   en,
   ru,
 } from './intl';
-import {Provider} from 'react-redux';
-import {IntlProvider, addLocaleData} from 'react-intl';
+
 
 class Main extends Component {
   constructor() {
@@ -22,22 +20,14 @@ class Main extends Component {
     this.state = {appStateLoaded: false};
   }
 
-  componentDidMount() {
-    initializeAppState()
-      .then(this.handleAppStateInitialization.bind(this));
-  }
-
-  handleAppStateInitialization(store) {
-    this.setState({appStateLoaded: true, store});
-  }
+  
 
   renderPreloader() {
     return <Preloader message="Please wait while warlock fetching your rituals" />;
   }
 
   renderApp() {
-    const {store} = this.state;
-    return <Provider store={store}><App /></Provider>;
+    return <App />;
   }
 
   render() {
@@ -52,9 +42,7 @@ class Main extends Component {
     
     return (
       <Tower theme="dark">
-        <IntlProvider locale="en" messages={en}>
-          {result}
-        </IntlProvider>
+        {result}
       </Tower>
     );
   }

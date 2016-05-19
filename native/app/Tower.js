@@ -1,14 +1,17 @@
 import {Component, Children, PropTypes} from 'react-native';
 import {darkTheme, lightTheme} from './styles';
+import {Provider} from 'react-redux';
+import {IntlProvider, addLocaleData} from 'react-intl';
+import {initializeAppState} from './reducers';
+
+static const LIGHT = 'light';
+static const DARK = 'dark';
 
 /**
  * Tower application context provider. It‘s a funky name for boring functionality.
  * Anything that should be provided in a context and accross application goes here.
  */
 class Tower extends Component {
-  static LIGHT = 'light';
-  static DARK = 'dark';
-  
   static propTypes = {
     theme: PropTypes.oneOf(['light', 'dark']).isRequired,
     children: PropTypes.element.isRequired,
@@ -26,6 +29,15 @@ class Tower extends Component {
     super(props, context);
     
     this.themeName = props.theme;
+  }
+  
+  componentDidMount() {
+    initializeAppState()
+      .then(this.handleAppStateInitialization.bind(this));
+  }
+
+  handleAppStateInitialization(store) {
+    this.setState({appStateLoaded: true, store});
   }
   
   getChildContext() {
@@ -46,7 +58,15 @@ class Tower extends Component {
   
   render() {
     const {children} = this.props;
-    return Children.only(children);
+    return ;
+    
+    return (
+      <Provider store={store}>
+        <IntlProvider locale="en" messages={en}>
+          {Children.only(children)}
+        </IntlProvider>
+      </Provider>
+    )
   }
 }
 
