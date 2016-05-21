@@ -10,4 +10,3 @@ test:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit
     - cp .report.xunit.xml $CIRCLE_TEST_REPORTS/xunit
     
-    

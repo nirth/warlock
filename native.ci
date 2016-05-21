@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -z ${CIRCLE_TEST_REPORTS}];
+  then echo "CIRCLE_TEST_REPORTS is not set";
+  else echo "CIRCLE_TEST_REPORTS is set";
+fi
+
