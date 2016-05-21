@@ -3,10 +3,5 @@ machine:
     version: 6.0.0
 test:
   override:
-    - cd ./native
-    - npm install
-    - npm run ci
-    - mkdir -p $CIRCLE_TEST_REPORTS/xunit
-    - mkdir -p $CIRCLE_TEST_REPORTS/junit
-    - cp .report.xunit.xml $CIRCLE_TEST_REPORTS/xunit
+    - ./native.ci
     
