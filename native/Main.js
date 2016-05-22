@@ -2,16 +2,12 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-import React, {Component} from 'react-native';
-import {
-  App,
-  Preloader,
-  Tower,
-} from './app';
-import {
-  en,
-  ru,
-} from './intl';
+import React, {Component, View, Text} from 'react-native';
+// import {
+//   App,
+//   Preloader,
+//   Tower,
+// } from './app';
 
 
 class Main extends Component {
@@ -19,8 +15,6 @@ class Main extends Component {
     super();
     this.state = {appStateLoaded: false};
   }
-
-  
 
   renderPreloader() {
     return <Preloader message="Please wait while warlock fetching your rituals" />;
@@ -32,19 +26,15 @@ class Main extends Component {
 
   render() {
     const {appStateLoaded} = this.state;
-    let result;
 
-    if (!appStateLoaded) {
-      result = this.renderPreloader();
-    } else {    
-      result = this.renderApp();
-    }
-    
+    return <View><Text>Main</Text></View>;
+    /*
     return (
       <Tower theme="dark">
-        {result}
+        {!appStateLoaded ? this.renderPreloader() : this.renderApp()}
       </Tower>
     );
+    */
   }
 }
 

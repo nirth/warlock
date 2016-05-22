@@ -1,11 +1,26 @@
-import {Component, Children, PropTypes} from 'react-native';
+import React, {Component, Children, PropTypes} from 'react-native';
 import {darkTheme, lightTheme} from './styles';
 import {Provider} from 'react-redux';
 import {IntlProvider, addLocaleData} from 'react-intl';
+import enLocale from 'react-intl/locale-data/en';
 import {initializeAppState} from './reducers';
+import {en, ru} from '../intl';
 
-static const LIGHT = 'light';
-static const DARK = 'dark';
+const LIGHT = 'light';
+const DARK = 'dark';
+
+const resolveLocale = (locale = '') => {
+  switch (locale) {
+    case 'en':
+    case 'en-GB':
+      return en;
+    case 'ru':
+    case 'ru-RU':
+      return ru;
+    default:
+      return en;
+  }
+};
 
 /**
  * Tower application context provider. It‘s a funky name for boring functionality.
@@ -31,23 +46,14 @@ class Tower extends Component {
     this.themeName = props.theme;
   }
   
-  componentDidMount() {
-    initializeAppState()
-      .then(this.handleAppStateInitialization.bind(this));
-  }
-
-  handleAppStateInitialization(store) {
-    this.setState({appStateLoaded: true, store});
-  }
-  
   getChildContext() {
     const {theme} = this.props;
     
     switch (theme) {
-      case 'light': {
+      case LIGHT: {
         return {theme: lightTheme};
       }
-      case 'dark': {
+      case DARK: {
         return {theme: darkTheme};
       }
       default: {
@@ -56,17 +62,28 @@ class Tower extends Component {
     }
   }
   
+  componentDidMount() {
+    addLocaleData(enLocale);
+
+    initializeAppState()
+      .then(::this.handleAppStateInitialization);
+  }
+  
+  handleAppStateInitialization(store) {
+    this.setState({appStateLoaded: true, store});
+  }
+  
   render() {
     const {children} = this.props;
-    return ;
-    
+    const {store} = this.state;
+
     return (
       <Provider store={store}>
-        <IntlProvider locale="en" messages={en}>
+        <IntlProvider locale="en" messages={resolveLocale()}>
           {Children.only(children)}
         </IntlProvider>
       </Provider>
-    )
+    );
   }
 }
 
