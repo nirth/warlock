@@ -1,7 +1,4 @@
-machine:
-  node:
-    version: 6.0.0
 test:
-  override:
+  override:    
     - ./native.ci
     
