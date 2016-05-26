@@ -8,8 +8,8 @@ fi
 echo "Running Tests on Native."
 echo "Reports directory is $REPORTS_DIRECTORY"
 
-cd ./native
+cd ./WarlockNative
 npm install
 npm run ci
-mkdir -p $CIRCLE_TEST_REPORTS/xunit
+mkdir -p $REPORTS_DIRECTORY/xunit
 cp .report.xunit.xml $REPORTS_DIRECTORY/xunit
