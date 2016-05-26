@@ -13,18 +13,20 @@ import {
 
 const RitualItem = ({name, uuid, createdAt, updatedAt, onPress}) => (
   // FIXME: Figure out what's wrong with TouchableHighlight and how should it be used.
-  <VBox>
-    <Title dontTranslate>{name}</Title>
-    <HBox>
-      <BoringText date>{createdAt}</BoringText>
-      <Spacer />
-      <BoringText date>{updatedAt}</BoringText>
-    </HBox>
-    <HBox>
-      <Spacer />
-      <BoringText dontTranslate>{uuid}</BoringText>
-    </HBox>
-  </VBox>
+  <TouchableOpacity>
+    <VBox>
+      <Title dontTranslate>{name}</Title>
+      <HBox>
+        <BoringText date>{createdAt}</BoringText>
+        <Spacer />
+        <BoringText date>{updatedAt}</BoringText>
+      </HBox>
+      <HBox>
+        <Spacer />
+        <BoringText dontTranslate>{uuid}</BoringText>
+      </HBox>
+    </VBox>
+  </TouchableOpacity>
 );
 
 RitualItem.propTypes = {

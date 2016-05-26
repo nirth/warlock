@@ -1,5 +1,5 @@
 import React from 'react';
-import {Title, Subtitle, Message, Screen} from './components';
+import {Title, Message, Screen} from './components';
 
 const Preloader = () => (
   <Screen>

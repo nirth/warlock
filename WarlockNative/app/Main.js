@@ -17,7 +17,7 @@ const checkIntl = () => {
 const Main = () => {
   checkIntl();
   
-  return <Tower theme="dark" preloader={Preloader} app={App} />
+  return <Tower theme="dark" preloader={Preloader} app={App} />;
 };
 
 export default Main;

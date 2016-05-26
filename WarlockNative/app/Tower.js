@@ -1,4 +1,4 @@
-import React, {Component, Children, PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {darkTheme, lightTheme} from './styles';
 import {Provider} from 'react-redux';
 import {IntlProvider, addLocaleData} from 'react-intl';
@@ -29,7 +29,7 @@ const resolveLocale = (locale = '') => {
 class Tower extends Component {
   /**
    * Props of tower regulate application wide settings like theme, preloader etc.
-   * 
+   *
    * @property {Object} propTypes - Props of tower regulate application wide settings like theme, preloader etc.
    * @property {string} propTypes.theme - Name of the theme, default value `light`.
    * @property {Class} propTypes.preloader - Component responsible for showing preloader message.
@@ -54,7 +54,6 @@ class Tower extends Component {
     
     this.state = {
       themeName: props.theme,
-      loaded: false,
       store: null,
     };
   }
@@ -86,18 +85,10 @@ class Tower extends Component {
     this.setState({loaded: true, store});
   }
   
-  renderApp(store) {
-    return (
-      <Provider store={store}>
-      
-      </Provider>
-    )
-  }
-  
   render() {
     // React components should start with capital letter.
     const {app: App, preloader: Preloader} = this.props;
-    const {store, loaded} = this.state;
+    const {store} = this.state;
     
     if (store === null) {
       return (
