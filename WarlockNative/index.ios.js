@@ -7,7 +7,8 @@ import React from 'react';
 import {
   AppRegistry, Text, View
 } from 'react-native';
+import {Main} from './app';
 
-const WarlockIos = () => <View><Text>Foo Bar</Text></View>;
+const WarlockIos = () => <Main />;
 
 AppRegistry.registerComponent('WarlockNative', () => WarlockIos);
