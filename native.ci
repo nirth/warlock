@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z ${CIRCLE_TEST_REPORTS}];
+if [ -z ${CIRCLE_TEST_REPORTS} ];
   then REPORTS_DIRECTORY=./.reports;
   else REPORTS_DIRECTORY=$CIRCLE_TEST_REPORTS;
 fi
