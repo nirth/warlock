@@ -46,6 +46,7 @@
     "json-loader": "^0.5.4",
     "mocha": "^2.5.3",
     "react-addons-test-utils": "=15.0.2",
+    "react-native-mock": "^0.2.2",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
     "spec-xunit-file": "0.0.1-3"
